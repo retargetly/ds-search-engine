@@ -26,6 +26,9 @@ RUN apt-get install -y libcurl4-openssl-dev libssl-dev
 RUN pip install --upgrade pip
 COPY ./requirements.txt .
 RUN pip install -r requirements.txt
+RUN python -m spacy download es_core_news_sm
 
 # add app
 COPY . .
+
+RUN python main.py
